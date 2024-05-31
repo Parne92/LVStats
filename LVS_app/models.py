@@ -2,7 +2,7 @@ from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Float
 from sqlalchemy.orm import validates
 from flask_login import UserMixin
 
-from app import db
+from FlaskProject.LVS_app.views import db
 
 class Player(UserMixin, db.Model):
     __tablename__ = 'player'

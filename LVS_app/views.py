@@ -1,17 +1,14 @@
 from datetime import datetime
 
+from . import app
+
 from flask import Flask, redirect, render_template, request, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_wtf.csrf import CSRFProtect
 from flask_login import LoginManager, login_user, login_required, current_user, logout_user
 
 
-app = Flask(__name__, static_folder='static')
-#csrf = CSRFProtect(app)
-
-
-app.config['SECRET_KEY'] = 'secret-key-goes-here'
+app.config['SECRET_KEY'] = 'rtyuikujhygtfrdewe234567890'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 
 # Initialize the database connection
