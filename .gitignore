@@ -1,2 +1,2 @@
 *.env
-FlaskProject/instance/db.sqlite
+*.sqlite
