@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style>
+        body {
+            min-height: 75rem;
+            padding-top: 4.5rem;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <h1>About</h1>
+
+    <p>
+        LVS is a way to foster competition between friends. Each position has a slightly different
+        scoring algorithm, so you can play where you want to, not where you need to to beat your friends.
+    </p>
+
+    <p>
+        Additionally, it is also great for personal stat tracking as well, to see if you're getting better 
+        in the competition against yourself.
+    </p>
+
+    <h3>The Technical Stuff</h2>
+    <h4>Built with: Flask, Bootstrap, PostgreSQL, Apache</h3>
+
+    <form action="https://github.com/Parne92" method="get" target="_blank">
+        <button type="submit" class="btn btn-dark">My Github</button>
+     </form>
+    
+{% endblock %}

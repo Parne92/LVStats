@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Player List{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style>
+      body {
+          min-height: 75rem;
+          padding-top: 4.5rem;
+          align-items: center;
+      }
+  </style>
+{% endblock %}
+{% block content %}
+      <h1>Dashboard</h1>
+
+      {% if True %}
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Rating</th>
+                      <th class="text-end">Details</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for player in players %}
+                      <tr>
+                          <td>{{ player.username }}</td>
+                          <td>{% include "games_rating.html" %}</td>
+                          <td class="text-end"><a href="{{ url_for('details', id=player.id) }}" class="btn btn-sm btn-primary">Player Details</a></td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      {% else %}
+          <p>No Users have reported games!</p>
+      {% endif %}
+
+{% endblock %}

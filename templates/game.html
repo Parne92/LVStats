@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block title %}Games{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style>
+      body {
+          min-height: 75rem;
+          padding-top: 4.5rem;
+          align-items: center;
+      }
+  </style>
+{% endblock %}
+
+{% block content %}
+      <h1>Game Board</h1>
+
+      <p>
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#addReviewModal">
+            Add new game
+        </button>
+    </p>
+
+      {% if True %}
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>GameID</th>
+                      <th>Date</th>
+                      <th>Rating</th>
+                      <th>Minutes</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for game in games %}
+                      <tr>
+                          <td>{{ game.id }}</td>
+                          <td>{{ game.game_date }}</td>
+                          <td>{{ game.rating}}</td>
+                          <td>{{ game.time}}</td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      {% else %}
+          <p>No Users have reported games!</p>
+      {% endif %}
+
+
+      <!-- Modal -->
+    <div class="modal fade" id="addReviewModal" tabindex="-1" aria-labelledby="addReviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addReviewModalLabel">Add Game</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                <form method="POST" action="{{ url_for('add_review', id=player.id) }}">
+  
+                <div class="modal-body">
+                    <div class="mb-3">
+                      <label class="form-label fw-bold">Primary Position</label>
+  
+                      <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="position" id="position1" value="Forward">
+                          <label class="form-check-label" for="position1">Forward</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="position" id="position2" value="Midfielder">
+                          <label class="form-check-label" for="position2">Midfielder</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="position" id="position3" value="Defender">
+                          <label class="form-check-label" for="position3">Defender</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="position" id="position4" value="Goalkeeper">
+                          <label class="form-check-label" for="position4">Goalkeeper</label>
+                        </div>
+                    </div>
+  
+                    <div class="mb-3">                        
+                      <label for="goals" class="form-label fw-bold">Goals Scored</label>
+                      <input type="number" class="form-control" id="goals" name="goals" min="1">
+                    </div>
+  
+                    <div class="mb-3">                        
+                      <label for="assists" class="form-label fw-bold">Assists</label>
+                      <input type="number" class="form-control" id="assists" name="assists" min="0">
+                    </div>
+  
+                    <div class="mb-3">                        
+                      <label for="tackles" class="form-label fw-bold">Important Tackles</label>
+                      <input type="number" class="form-control" id="tackles" name="tackles" min="0">
+                    </div>
+  
+                    <div class="mb-3">
+                        <label for="saves" class="form-label fw-bold">Save % (0 if you were not a GK)</label>
+                        <input type="number" class="form-control" id="saves" name="saves" min="0" max="100">
+                    </div>
+  
+                    <div class="mb-3">
+                      <label for="time" class="form-label fw-bold">Minutes Played</label>
+                      <input type="number" class="form-control" id="time" name="time" min="0">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Add Game</button>
+                </div>
+          </form>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}

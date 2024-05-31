@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style>
+      body {
+          min-height: 75rem;
+          padding-top: 4.5rem;
+          align-items: center;
+      }
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class="column is-5 is-offset-5">
+    <h3 class="title">Log in to Los Vaqueros Stats</h3>
+    <div class="box">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+<form method="POST" action="/login">
+        <form method="POST" action="/login">
+            <div class="form-floating mb-3">
+                <input type="username" class="form-control" id="username" name="username" placeholder="Your Username">
+                <label for="username">Username</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id = "password" name="password" placeholder="Password">
+                <label for="password">Password</label>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="remember" style="background-color: #212529;">
+                <label class="form-check-label" for="exampleCheck1" name="remember">Remember Me</label>
+            </div>
+              <button type="submit" class="btn btn-dark">Log In</button>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

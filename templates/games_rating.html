@@ -1,0 +1,13 @@
+{% if games_rating(player.id)["game_count"] %}
+    <span class="score">
+        <div class="score-wrap align-top">
+            <span class="rating" style="width: 40px;">
+            </span>  
+        </div>
+        <span class="align-top">
+            {{ games_rating(player.id)["avg_rating"]|float }} ({{games_rating(player.id)["game_count"]}} {% if games_rating(player.id)["game_count"] == 1 %} game{% else %} games{% endif %})
+        </span>
+    </span> 
+{% else %}
+  <span class="fst-italic">No ratings yet</span>
+{% endif %}
