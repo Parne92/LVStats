@@ -8,7 +8,7 @@ from flask_login import LoginManager, login_user, login_required, current_user, 
 
 
 app = Flask(__name__, static_folder='static')
-csrf = CSRFProtect(app)
+#csrf = CSRFProtect(app)
 
 
 app.config['SECRET_KEY'] = 'secret-key-goes-here'
@@ -74,7 +74,6 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
-...
 @app.route('/login', methods=['POST'])
 def login_post():
     # login code goes here
@@ -123,7 +122,7 @@ def details(id):
     return render_template('details.html', player=restaurant, games=reviews)
 
 @app.route('/game/<int:id>', methods=['POST'])
-@csrf.exempt
+#@csrf.exempt
 def add_review(id):
     try:
         goals = request.values.get('goals')
