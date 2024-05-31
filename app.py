@@ -180,6 +180,8 @@ def calculate_rating(position,goals,assists,tackles,saves,time):
             rating = goals + assists + (1.5 * tackles) + tackles_per_minute + points_per_minute
         elif(position == "Goalkeeper"):
             rating = (goals*4) + (assists * 2) + ((saves/10) * 9) + saves_per_minute
+
+        rating = "{:.2f}".format(rating)
         return rating
 
 
