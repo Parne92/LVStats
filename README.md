@@ -23,3 +23,5 @@ Once the user is logged in, they will be greeted by their account dashboard:
 
 And they are free to add (globally viewable) games, so other users can see their activity and know what they need to beat to claim top spot! 
 <img src="https://github.com/Parne92/LVStats/blob/main/PicturesForTheReadMe/GameDashboard.png" width="50%" />
+
+<img src="https://github.com/Parne92/LVStats/blob/main/PicturesForTheReadMe/Main%20Dashboard.png" width="50%" />
